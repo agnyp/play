@@ -2008,7 +2008,7 @@ a, a:link, a:visited {
   transition: color 0.25s;
 }
 a:hover, a:focus, a:link:hover, a:link:focus, a:visited:hover, a:visited:focus {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 h1.heading {
