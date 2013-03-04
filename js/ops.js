@@ -1,5 +1,5 @@
 var url = "http://api.justin.tv/api/stream/list.json?channel=";
-var stream = "artosis,wagamamatv,aui_2000,protech,steven_bonnell_ii,sodapoppin&callback=?"
+var stream = "tobiwandota,dotademon,h4nn1,universedota,netolicrc,sexybamboe,megumixbear,koreyah,alaito&callback=?"
 var streamdata = [];
 $.getJSON(url + stream, function(data) {
   var datact = 0;
