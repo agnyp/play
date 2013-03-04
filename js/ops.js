@@ -1,5 +1,5 @@
 var url = "http://api.justin.tv/api/stream/list.json?channel=";
-var stream = "tobiwandota,dotademon,h4nn1,universedota,netolicrc,sexybamboe,megumixbear,koreyah,alaito&callback=?"
+var stream = "tobiwandota,versuta,minidota,wagamamatv,netolicrc,sexybamboe,megumixbear,koreyah,alaito&callback=?"
 var streamdata = [];
 $.getJSON(url + stream, function(data) {
   var datact = 0;
@@ -14,6 +14,15 @@ $.getJSON(url + stream, function(data) {
       });
   });
   for (i=0;i<datact;i++) {
-    $('#stream'+i).append('<h3>' + streamdata[i].name + '</h3>' + streamdata[i].stream);
+    if (i%3===0) {
+      $('#streams').append('<article class="row">');
+    }
+    $('#streams').children().last().append('<section id="' + streamdata[i].name + '" class="one third padded"> <h3>' + streamdata[i].name + '</h3>' + streamdata[i].stream + '</section>');
+    if (i%3===2) {
+      $('#streams').append('</article>');
+    }
+  }
+  if (i%3!==2) {
+    $('#streams').append('</article>');
   }
 });
