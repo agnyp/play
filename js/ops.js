@@ -4,14 +4,17 @@ var streamdata = [];
 $.getJSON(url + stream, function(data) {
   var datact = 0;
   $.each(data, function(id, node) {
+      streamdata[datact] = [];
       $.each(node, function(key, val) {
+        streamdata[datact].title = val.title;
+        streamdata[datact].viewers = val.stream_count;
+        streamdata[datact].game = val.meta_game;
         if(key==='channel') {
-          streamdata[datact] = [];
           streamdata[datact].stream = val.embed_code;
           streamdata[datact].name = val.login;
-          datact++;
         }
       });
+      datact++;
   });
   for (i=0;i<datact;i++) {
     if (i%3===0) {
