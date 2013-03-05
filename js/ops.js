@@ -1,5 +1,5 @@
 var url = "http://api.justin.tv/api/stream/list.json?channel=";
-var stream = "tobiwandota,versuta,minidota,wagamamatv,netolicrc,sexybamboe,megumixbear,koreyah,alaito&callback=?";
+var stream = "tobiwandota,versuta,minidota,wagamamatv,netolicrc,sexybamboe,dendi,wepla,alaito&callback=?";
 var streamSelection = [];
 var streamDota = ["dendi","tobiwandota","starladder1","wagamamatv","onemoregametv2","versuta","4cejkee","beyondthesummit","minidota"];
 var streamWoW = ["styrka","affinitiibl","amiye","slootbag","zuperwtf","killars","syiler","sco","healthbar"];
