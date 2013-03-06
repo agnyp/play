@@ -26,7 +26,7 @@ $('#streamRemove').click(function() {
   $('#streamName').val('');
 });
 $('#streamUpdate').click(function() {
-  streamUpdate(streamSelection);
+  if (streamSelection != []) streamUpdate(streamSelection);
 });
 $('#streamDota').click(function() {
   streamUpdate(streamDota);
@@ -45,7 +45,7 @@ function streamCategory(selection) {
 }
 function streamUpdate(selection) {
   stream = "?channel=" + selection.toString() + "&callback=?";
-  $('#streams').html('');
+  $('#streams').html('<i class="icon-spinner icon-4x icon-spin"></i>');
   loadStreams();
 }
 
@@ -65,6 +65,7 @@ function loadStreams() {
         });
         datact++;
     });
+   $('#streams').html('');
     for (i=0;i<datact;i++) {
       if (i%3===0) {
         $('#streams').append('<article class="row">');
