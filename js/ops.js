@@ -1,8 +1,9 @@
-var url = "http://api.justin.tv/api/stream/list.json?channel=";
-var stream = "tobiwandota,versuta,minidota,wagamamatv,netolicrc,sexybamboe,dendi,wepla,alaito&callback=?";
+var url = "http://api.justin.tv/api/stream/list.json";
+var stream = "?channel=tobiwandota,versuta,minidota,wagamamatv,netolicrc,sexybamboe,dendi,wepla,alaito&callback=?";
 var streamSelection = [];
 var streamDota = ["dendi","tobiwandota","starladder1","wagamamatv","onemoregametv2","versuta","4cejkee","beyondthesummit","minidota"];
 var streamWoW = ["styrka","affinitiibl","amiye","slootbag","zuperwtf","killars","syiler","sco","healthbar"];
+var streamProm = ["styrka","greenyb","healthbar","velna","amiye","kynks"];
 var streamdata = [];
 
 function removeA(arr) {
@@ -33,9 +34,17 @@ $('#streamDota').click(function() {
 $('#streamWoW').click(function() {
   streamUpdate(streamWoW);
 });
+$('#streamProm').click(function() {
+  streamUpdate(streamProm);
+});
 
+function streamCategory(selection) {
+
+  $('#streams').html('');
+  loadStreams();
+}
 function streamUpdate(selection) {
-  stream = selection.toString() + "&callback=?";
+  stream = "?channel=" + selection.toString() + "&callback=?";
   $('#streams').html('');
   loadStreams();
 }
