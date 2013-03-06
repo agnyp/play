@@ -1,5 +1,5 @@
-var url = "http://api.justin.tv/api/stream/list.json?channel=";
-var stream = "styrka,alinity&callback=?"
+var url = "https://api.twitch.tv/kraken/streams?channel=";
+var stream = "sodapoppin,alinity&callback=?"
 
 $.getJSON(url + stream, function(data) {
   var items = [];
@@ -7,13 +7,18 @@ $.getJSON(url + stream, function(data) {
       items.push('<li> ENTRY </li>');
       $.each(node, function(key, val) {
         items.push('<li>' + key + ':' + val + '</li>');
-        if(key==='channel') {
           items.push('<li> CHANNEL INFO </li>');
           $.each(val, function(item, iden) {
             items.push('<li>' + item + ':' + iden + '</li>');
+            if(item==='channel') {
+              items.push('<li> CONTENTS </li>');
+              $.each(iden, function(one, two) {
+                items.push('<li>' + one + ':' + two + '</li>');
+              });
+              items.push('<li> END CONTENTS </li>');
+            };
           });
           items.push('<li> END CHANNEL INFO </li>');
-        }
       });
   });
  
