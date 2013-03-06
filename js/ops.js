@@ -26,7 +26,7 @@ $('#streamRemove').click(function() {
   $('#streamName').val('');
 });
 $('#streamUpdate').click(function() {
-  if (streamSelection != []) streamUpdate(streamSelection);
+  if (streamSelection.length !== 0) streamUpdate(streamSelection);
 });
 $('#streamDota').click(function() {
   streamUpdate(streamDota);
