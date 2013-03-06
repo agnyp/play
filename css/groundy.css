@@ -22,6 +22,15 @@ table, tr, td {
   border: 0px;
 }
 
+.footer {
+  position: fixed;
+  right: 0;
+  left: 0;
+  margin-right: 5px;
+  margin-bottom: -10px;
+  bottom: 0;
+}
+
 .layout {
   padding: 10px;
   background: #0e5056;
