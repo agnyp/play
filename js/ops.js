@@ -3,7 +3,7 @@ var stream = "?channel=tobiwandota,versuta,minidota,wagamamatv,netolicrc,sexybam
 var streamSelection = [];
 var streamDota = ["dendi","tobiwandota","starladder1","wagamamatv","onemoregametv2","versuta","4cejkee","beyondthesummit","minidota"];
 var streamWoW = ["styrka","affinitiibl","amiye","slootbag","zuperwtf","killars","syiler","sco","healthbar"];
-var streamProm = ["styrka","greenyb","healthbar","velna","amiye","kynks"];
+var streamProm = ["styrka","greenyb","healthbar","velna","amiye","kynks","shuttle08","gnorrior","archidel"];
 var streamdata = [];
 
 var flashHeight = 295;
