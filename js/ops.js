@@ -85,7 +85,7 @@ function loadStreams() {
       streamCreate(streamdata[i]);
     }
     streamPlacement();
-    if ($('#streams').html()==='') $('#streams').html('<h2><i class="icon-lemon"></i> no streams available <i class="icon-lemon"></i></h2>');
+    setTimeout(function(){if ($('#streams').html()==='') $('#streams').html('<h2><i class="icon-lemon"></i> no streams available <i class="icon-lemon"></i></h2>')}, 500);
   });
 }
 
