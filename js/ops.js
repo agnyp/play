@@ -1,10 +1,9 @@
 var url = "https://api.twitch.tv/kraken/streams";
-var stream = "?channel=tobiwandota,versuta,minidota,wagamamatv,netolicrc,sexybamboe,dendi,wepla,alaito&callback=?";
+var stream = "?limit=9&callback=?";
 var streamSelection = [];
-var streamDota = ["dendi","tobiwandota","starladder1","wagamamatv","onemoregametv2","versuta","4cejkee","beyondthesummit","minidota"];
-var streamWoW = ["styrka","affinitiibl","amiye","slootbag","zuperwtf","killars","syiler","sco","healthbar"];
 var streamProm = ["styrka","greenyb","healthbar","velna","amiye","kynks","shuttle08","gnorrior","archidel"];
 var streamdata = [];
+var streamsActive = [];
 
 var flashHeight = 295;
 var flashWidth = 353;
@@ -38,10 +37,14 @@ $('#streamUpdate').click(function() {
   if (streamSelection.length !== 0) streamUpdate(streamSelection);
 });
 $('#streamDota').click(function() {
-  streamUpdate(streamDota);
+  stream = "?game=Dota+2&limit=9&callback=?";
+  $('#streams').html('<i class="icon-spinner icon-4x icon-spin"></i>');
+  loadStreams();
 });
 $('#streamWoW').click(function() {
-  streamUpdate(streamWoW);
+  stream = "?game=World+of+Warcraft:+Mists+of+Pandaria&limit=9&callback=?";
+  $('#streams').html('<i class="icon-spinner icon-4x icon-spin"></i>');
+  loadStreams();
 });
 $('#streamProm').click(function() {
   streamUpdate(streamProm);
@@ -77,24 +80,33 @@ function loadStreams() {
         };
       };
     });
-   $('#streams').html('');
+    streamsActive = [];
     for (i=0;i<datact;i++) {
-      if (i%3===0) {
-        $('#streams').append('<article class="row">');
-      }
       streamCreate(streamdata[i]);
-      if (i%3===2) {
-        $('#streams').append('</article>');
-      }
     }
-    if (i%3!==2) {
-      $('#streams').append('</article>');
-    }
+    streamPlacement();
+    if ($('#streams').html()==='') $('#streams').html('<h2><i class="icon-lemon"></i> no streams available <i class="icon-lemon"></i></h2>');
   });
 }
 
+function streamPlacement() {
+  $('#streams').html('');
+  for (i=0;i<streamsActive.length;i++) {
+    if (i%3===0) {
+      $('#streams').append('<article class="row">');
+    }
+    $('#streams').children().last().append(streamsActive[i]);
+    if (i%3===2) {
+      $('#streams').append('</article>');
+    }
+  }
+  if (i%3!==2) {
+    $('#streams').append('</article>');
+  }
+}
+
 function streamCreate(streamA) {
-  $('#streams').children().last().append('<section id="' + streamA.name + '" class="one third padded"> <h3>' + streamA.name + '</h3>' + '<object type="' + flashType + '" height="' + flashHeight + '" width="' + flashWidth + '" id="live_embed_player_flash" data="'+ flashData + '?channel=' + name + '" bgcolor="' + flashColor + '"><param name="allowFullScreen" value="' + flashFS + '" /><param name="allowScriptAccess" value="' + flashSA + '" /><param name="movie" value="' + flashData + '" /><param name="flashvars" value="' + flashVars + streamA.name + '" /></object>' + '<p>' + streamA.title + '</p> </section>');
+  streamsActive.push('<section id="' + streamA.name + '" class="one third padded"> <h3>' + streamA.name + '</h3>' + '<object type="' + flashType + '" height="' + flashHeight + '" width="' + flashWidth + '" id="live_embed_player_flash" data="'+ flashData + '?channel=' + name + '" bgcolor="' + flashColor + '"><param name="allowFullScreen" value="' + flashFS + '" /><param name="allowScriptAccess" value="' + flashSA + '" /><param name="movie" value="' + flashData + '" /><param name="flashvars" value="' + flashVars + streamA.name + '" /></object>' + '<p>' + streamA.title + '</p> </section>');
 }
 
 $('document').ready(loadStreams());
