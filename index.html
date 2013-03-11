@@ -95,23 +95,37 @@
     <article class="row">
       <section class="one whole padded">
         <h2>Streams</h2>
-        <table style="margin-top:-55px; margin-left:100px; width:850px">
-          <tr>
-            <td style="width:200px">
+        <nav class="inline">
+          <ul>
+            <li style="width:200px">
               <p><input type="text" id="streamName"/></p>
-            </td>
-            <td style="width:550px">
-              <p>
-                <button class="nocolor" id="streamAdd">Add</button>
-                <button class="nocolor buttonGap" id="streamRemove">Remove</button>
-                <button class="nocolor buttonGap" id="streamUpdate">Update</button>
-                <button class="nocolor buttonGap" id="streamDota">Dota</button>
-                <button class="nocolor buttonGap" id="streamWoW">WoW</button>
-                <button class="nocolor buttonGap" id="streamProm">Promethean</button>
-              </p>
-            </td>
-          </tr>
-        </table>
+            </li>
+            <li>
+              <a class="nocolor buttonGap" id="streamAdd">Add</a>
+            </li>
+            <li>
+              <a class="nocolor" id="streamRemove">Remove</a>
+            </li>
+            <li>
+              <a class="nocolor" id="streamUpdate">Update</a>
+            </li>
+            <li>
+              <span class="dropdown button nocolor buttonGap">Presets <i class="icon-sort-down"></i>
+                <ul>
+                  <li>
+                    <a class="nocolor" id="streamDota">Dota</a>
+                  </li>
+                  <li>
+                    <a class="nocolor" id="streamWoW">WoW</a>
+                  </li>
+                  <li>
+                    <a class="nocolor" id="streamProm">Promethean</a>
+                  </li>
+                </ul>
+              </span>
+            </li>
+          </ul>
+        </nav>
       </section>
       <div id='streams'>
       </div>

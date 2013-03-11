@@ -1,7 +1,7 @@
 var url = "https://api.twitch.tv/kraken/streams";
 var stream = "?limit=9&callback=?";
 var streamSelection = [];
-var streamProm = ["styrka","greenyb","healthbar","velna","amiye","kynks","shuttle08","gnorrior","archidel"];
+var streamProm = ["styrka","greenyb","healthbar","velna","amiye","kynks","shuttle08","gnorrior","shyllo","archidel"];
 var streamdata = [];
 var streamsActive = [];
 

@@ -2348,15 +2348,7 @@ button.success, .button.success, a.button.success, a.button:link.success, a.butt
 button.success:hover, button.success:focus, .button.success:hover, .button.success:focus, a.button.success:hover, a.button.success:focus, a.button:link.success:hover, a.button:link.success:focus, a.button:visited.success:hover, a.button:visited.success:focus, input[type=submit].success:hover, input[type=submit].success:focus, input[type=button].success:hover, input[type=button].success:focus, input[type=reset].success:hover, input[type=reset].success:focus {
   background: #46850a;
 }
-button.nocolor, .button.nocolor, a.button.nocolor, a.button:link.nocolor, a.button:visited.nocolor, input[type=submit].nocolor, input[type=button].nocolor, input[type=reset].nocolor {
-  background: #444;
-  border: 1px solid #333;
-  color: white;
-}
-button.nocolor:hover, button.nocolor:focus, .button.nocolor:hover, .button.nocolor:focus, a.button.nocolor:hover, a.button.nocolor:focus, a.button:link.nocolor:hover, a.button:link.nocolor:focus, a.button:visited.nocolor:hover, a.button:visited.nocolor:focus, input[type=submit].nocolor:hover, input[type=submit].nocolor:focus, input[type=button].nocolor:hover, input[type=button].nocolor:focus, input[type=reset].nocolor:hover, input[type=reset].nocolor:focus {
-  background: #333;
-}
-button.square, .button.square, a.button.square, a.button:link.square, a.button:visited.square, input[type=submit].square, input[type=button].square, input[type=reset].square {
+button.button.square, .button.square, a.button.square, a.button:link.square, a.button:visited.square, input[type=submit].square, input[type=button].square, input[type=reset].square {
   -ms-border-radius: 0;
   -o-border-radius: 0;
   -moz-border-radius: 0;
