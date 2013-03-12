@@ -104,7 +104,6 @@ function streamCreate(streamA) {
 
 function organize() {
   $('#streams').sortable();
-  $('#streams').disableSelection();
 }
 
 $('document').ready(function(){
