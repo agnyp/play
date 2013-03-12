@@ -13,6 +13,7 @@ var flashColor = "#000"
 var flashFS = "true";
 var flashSA = "always";
 var flashVars = "auto_play=false&start_volume=25&channel=";
+var lock = true;
 
 function removeA(arr) {
   var what, a = arguments, L = a.length, ax;
@@ -32,6 +33,20 @@ $('#streamAdd').click(function() {
 });
 $('#streamClear').click(function() {
   emptyStreams();
+});
+$('#streamMove').click(function(){
+  if (lock) {
+    $('#streams').sortable();
+    $('#streams').disableSelection();
+    $('#streamMove').html('Lock');
+    lock = false;
+  }
+  else if (!lock) {
+    $('#streams').sortable('disable');
+    $('#streams').enableSelection();
+    $('#streamMove').html('Move');
+    lock = true;
+  };
 });
 $(document).on("click", "a.remove", function() {
   $(this).parent().parent().parent().remove();
@@ -102,11 +117,6 @@ function streamCreate(streamA) {
   streamsActive.push('<section id="' + streamA.name + '"> <h3>' + streamA.name + ' <a class="remove">X</a></h3>' + '<object type="' + flashType + '" height="' + flashHeight + '" width="' + flashWidth + '" id="live_embed_player_flash" data="'+ flashData + '?channel=' + name + '" bgcolor="' + flashColor + '"><param name="allowFullScreen" value="' + flashFS + '" /><param name="allowScriptAccess" value="' + flashSA + '" /><param name="movie" value="' + flashData + '" /><param name="flashvars" value="' + flashVars + streamA.name + '" /></object>' + '<p class="subtext">' + streamA.title + '</p> </section>');
 }
 
-function organize() {
-  $('#streams').sortable();
-}
-
 $('document').ready(function(){
   loadStreams();
-  setTimeout(organize(),500);
 });
