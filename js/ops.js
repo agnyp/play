@@ -38,25 +38,25 @@ $(document).on("click", "a.remove", function() {
 });
 $('#streamDota').click(function() {
   stream = "?game=Dota+2&limit=9&callback=?";
-  $('#sortable').html('<i class="icon-spinner icon-4x icon-spin"></i>');
+  $('#streams').html('<i class="icon-spinner icon-4x icon-spin"></i>');
   loadStreams();
 });
 $('#streamWoW').click(function() {
   stream = "?game=World+of+Warcraft:+Mists+of+Pandaria&limit=9&callback=?";
-  $('#sortable').html('<i class="icon-spinner icon-4x icon-spin"></i>');
+  $('#streams').html('<i class="icon-spinner icon-4x icon-spin"></i>');
   loadStreams();
 });
 $('#streamProm').click(function() {
-  $('#sortable').html('<i class="icon-spinner icon-4x icon-spin"></i>');
+  $('#streams').html('<i class="icon-spinner icon-4x icon-spin"></i>');
   streamUpdate(streamProm);
 });
 
 function emptyStreams() {
-  $('#sortable').html('');
+  $('#streams').html('');
 }
 
 function streamUpdate(selection) {
-  if ($('#sortable').html()==='') $('#sortable').html('<i class="icon-spinner icon-4x icon-spin"></i>');
+  if ($('#streams').html()==='') $('#streams').html('<i class="icon-spinner icon-4x icon-spin"></i>');
   stream = "?channel=" + selection.toString() + "&callback=?";
   loadStreams();
 }
@@ -85,16 +85,16 @@ function loadStreams() {
       streamCreate(streamdata[i]);
     }
     streamPlacement();
-    setTimeout(function(){if ($('#sortable').html()==='' ||$('#sortable').html()==='<i class="icon-spinner icon-4x icon-spin"></i>') $('#sortable').html('<h2><i class="icon-lemon"></i> no streams available <i class="icon-lemon"></i></h2>')}, 500);
+    setTimeout(function(){if ($('#streams').html()==='' ||$('#streams').html()==='<i class="icon-spinner icon-4x icon-spin"></i>') $('#streams').html('<h2><i class="icon-lemon"></i> no streams available <i class="icon-lemon"></i></h2>')}, 500);
   });
 }
 
 function streamPlacement() {
   $('i.icon-spinner').remove();
   for (i=0;i<streamsActive.length;i++) {
-    $('#sortable').append('<li class="ui-state-default">');
-    $('#sortable').children().last().append(streamsActive[i]);
-    $('#sortable').append('</li>');
+    $('#streams').append('<li class="ui-state-default">');
+    $('#streams').children().last().append(streamsActive[i]);
+    $('#streams').append('</li>');
   }
 }
 
@@ -103,8 +103,8 @@ function streamCreate(streamA) {
 }
 
 function organize() {
-  $('#sortable').sortable();
-  $('#sortable').disableSelection();
+  $('#streams').sortable();
+  $('#streams').disableSelection();
 }
 
 $('document').ready(function(){
