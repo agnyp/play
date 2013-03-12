@@ -28,36 +28,36 @@ function removeA(arr) {
 $('#streamAdd').click(function() {
   streamSelection.push($('#streamName').val());
   $('#streamName').val('');
+  streamUpdate(streamSelection);
 });
-$('#streamRemove').click(function() {
-  removeA(streamSelection, $('#streamName').val());
-  $('#streamName').val('');
+$('#streamClear').click(function() {
+  emptyStreams();
 });
-$('#streamUpdate').click(function() {
-  if (streamSelection.length !== 0) streamUpdate(streamSelection);
+$(document).on("click", "a.remove", function() {
+  $(this).parent().parent().parent().remove();
 });
 $('#streamDota').click(function() {
   stream = "?game=Dota+2&limit=9&callback=?";
-  $('#streams').html('<i class="icon-spinner icon-4x icon-spin"></i>');
+  $('#sortable').html('<i class="icon-spinner icon-4x icon-spin"></i>');
   loadStreams();
 });
 $('#streamWoW').click(function() {
   stream = "?game=World+of+Warcraft:+Mists+of+Pandaria&limit=9&callback=?";
-  $('#streams').html('<i class="icon-spinner icon-4x icon-spin"></i>');
+  $('#sortable').html('<i class="icon-spinner icon-4x icon-spin"></i>');
   loadStreams();
 });
 $('#streamProm').click(function() {
+  $('#sortable').html('<i class="icon-spinner icon-4x icon-spin"></i>');
   streamUpdate(streamProm);
 });
 
-function streamCategory(selection) {
-
-  $('#streams').html('');
-  loadStreams();
+function emptyStreams() {
+  $('#sortable').html('');
 }
+
 function streamUpdate(selection) {
+  if ($('#sortable').html()==='') $('#sortable').html('<i class="icon-spinner icon-4x icon-spin"></i>');
   stream = "?channel=" + selection.toString() + "&callback=?";
-  $('#streams').html('<i class="icon-spinner icon-4x icon-spin"></i>');
   loadStreams();
 }
 
@@ -85,28 +85,29 @@ function loadStreams() {
       streamCreate(streamdata[i]);
     }
     streamPlacement();
-    setTimeout(function(){if ($('#streams').html()==='') $('#streams').html('<h2><i class="icon-lemon"></i> no streams available <i class="icon-lemon"></i></h2>')}, 500);
+    setTimeout(function(){if ($('#sortable').html()==='' ||$('#sortable').html()==='<i class="icon-spinner icon-4x icon-spin"></i>') $('#sortable').html('<h2><i class="icon-lemon"></i> no streams available <i class="icon-lemon"></i></h2>')}, 500);
   });
 }
 
 function streamPlacement() {
-  $('#streams').html('');
+  $('i.icon-spinner').remove();
   for (i=0;i<streamsActive.length;i++) {
-    if (i%3===0) {
-      $('#streams').append('<article class="row">');
-    }
-    $('#streams').children().last().append(streamsActive[i]);
-    if (i%3===2) {
-      $('#streams').append('</article>');
-    }
-  }
-  if (i%3!==2) {
-    $('#streams').append('</article>');
+    $('#sortable').append('<li class="ui-state-default">');
+    $('#sortable').children().last().append(streamsActive[i]);
+    $('#sortable').append('</li>');
   }
 }
 
 function streamCreate(streamA) {
-  streamsActive.push('<section id="' + streamA.name + '" class="one third padded"> <h3>' + streamA.name + '</h3>' + '<object type="' + flashType + '" height="' + flashHeight + '" width="' + flashWidth + '" id="live_embed_player_flash" data="'+ flashData + '?channel=' + name + '" bgcolor="' + flashColor + '"><param name="allowFullScreen" value="' + flashFS + '" /><param name="allowScriptAccess" value="' + flashSA + '" /><param name="movie" value="' + flashData + '" /><param name="flashvars" value="' + flashVars + streamA.name + '" /></object>' + '<p>' + streamA.title + '</p> </section>');
+  streamsActive.push('<section id="' + streamA.name + '"> <h3>' + streamA.name + ' <a class="remove">X</a></h3>' + '<object type="' + flashType + '" height="' + flashHeight + '" width="' + flashWidth + '" id="live_embed_player_flash" data="'+ flashData + '?channel=' + name + '" bgcolor="' + flashColor + '"><param name="allowFullScreen" value="' + flashFS + '" /><param name="allowScriptAccess" value="' + flashSA + '" /><param name="movie" value="' + flashData + '" /><param name="flashvars" value="' + flashVars + streamA.name + '" /></object>' + '<p class="subtext">' + streamA.title + '</p> </section>');
 }
 
-$('document').ready(loadStreams());
+function organize() {
+  $('#sortable').sortable();
+  $('#sortable').disableSelection();
+}
+
+$('document').ready(function(){
+  loadStreams();
+  setTimeout(organize(),500);
+});
