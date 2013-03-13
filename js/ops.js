@@ -4,6 +4,7 @@ var streamSelection = [];
 var streamProm = ["styrka","greenyb","healthbar","velna","amiye","kynks","shuttle08","gnorrior","shyllo","zoaxlis","archidel"];
 var streamdata = [];
 var streamsActive = [];
+var removeItem = '<a class="remove">X</a>';
 
 var flashHeight = 295;
 var flashWidth = 353;
@@ -36,7 +37,7 @@ $('#streamClear').click(function() {
 });
 $('#streamMove').click(function(){
   if (lock) {
-    $('#streams').sortable();
+    $('#streams').sortable('enable');
     $('#streams').disableSelection();
     $('#streamMove').html('Lock');
     lock = false;
@@ -97,9 +98,11 @@ function loadStreams() {
     });
     streamsActive = [];
     for (i=0;i<datact;i++) {
+      streamsActive[i] = [];
       streamCreate(streamdata[i]);
     }
     streamPlacement();
+    $('#streams').sortable("refresh");
     setTimeout(function(){if ($('#streams').html()==='' ||$('#streams').html()==='<i class="icon-spinner icon-4x icon-spin"></i>') $('#streams').html('<h2><i class="icon-lemon"></i> no streams available <i class="icon-lemon"></i></h2>')}, 500);
   });
 }
@@ -107,16 +110,20 @@ function loadStreams() {
 function streamPlacement() {
   $('i.icon-spinner').remove();
   for (i=0;i<streamsActive.length;i++) {
-    $('#streams').append('<li class="ui-state-default">');
-    $('#streams').children().last().append(streamsActive[i]);
+    $('#streams').append('<li class="ui-state-default" id="' + streamsActive[i].id + 'Link">');
+    $('#streams').children().last().append('<section id="' + streamsActive[i].id + '"> <h3>' + streamsActive[i].id + removeItem + '</h3>' + streamsActive[i].object + '<p class="subtext">' + streamsActive[i].title + '</p> </section>');
     $('#streams').append('</li>');
   }
 }
 
 function streamCreate(streamA) {
-  streamsActive.push('<section id="' + streamA.name + '"> <h3>' + streamA.name + ' <a class="remove">X</a></h3>' + '<object type="' + flashType + '" height="' + flashHeight + '" width="' + flashWidth + '" id="live_embed_player_flash" data="'+ flashData + '?channel=' + name + '" bgcolor="' + flashColor + '"><param name="allowFullScreen" value="' + flashFS + '" /><param name="allowScriptAccess" value="' + flashSA + '" /><param name="movie" value="' + flashData + '" /><param name="flashvars" value="' + flashVars + streamA.name + '" /></object>' + '<p class="subtext">' + streamA.title + '</p> </section>');
+  streamsActive[i].id = streamA.name;
+  streamsActive[i].object = '<object type="' + flashType + '" height="' + flashHeight + '" width="' + flashWidth + '" id="live_embed_player_flash" data="'+ flashData + '?channel=' + name + '" bgcolor="' + flashColor + '"><param name="allowFullScreen" value="' + flashFS + '" /><param name="allowScriptAccess" value="' + flashSA + '" /><param name="movie" value="' + flashData + '" /><param name="flashvars" value="' + flashVars + streamA.name + '" /></object>';
+  streamsActive[i].title = streamA.title;
 }
 
 $('document').ready(function(){
+  $('#streams').sortable();
+  $('#streams').sortable('disable');
   loadStreams();
 });
