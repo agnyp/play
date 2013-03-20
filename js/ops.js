@@ -111,7 +111,7 @@ function streamPlacement() {
   $('i.icon-spinner').remove();
   for (i=0;i<streamsActive.length;i++) {
     $('#streams').append('<li class="ui-state-default" id="' + streamsActive[i].id + 'Link">');
-    $('#streams').children().last().append('<section id="' + streamsActive[i].id + '"> <h3>' + streamsActive[i].id + removeItem + '</h3>' + streamsActive[i].object + '<p class="subtext">' + streamsActive[i].title + '</p> </section>');
+    $('#streams').children().last().append('<section id="' + streamsActive[i].id + '"> <h3> <a class="inline cursorDefault" target="_blank" href="http://www.twitch.tv/' + streamsActive[i].id + '">' + streamsActive[i].id + '</a>' + removeItem + '</h3>' + streamsActive[i].object + '<p class="subtext">' + streamsActive[i].title + '</p> </section>');
     $('#streams').append('</li>');
   }
 }
