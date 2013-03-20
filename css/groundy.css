@@ -95,7 +95,7 @@ button.dropdown ul, .button.dropdown ul, a.button.dropdown ul, a.button:link.dro
 
 button.dropdown ul li a:hover, button.dropdown ul li a:focus, button.dropdown ul li a:link:hover, button.dropdown ul li a:link:focus, button.dropdown ul li a:visited:hover, button.dropdown ul li a:visited:focus, .button.dropdown ul li a:hover, .button.dropdown ul li a:focus, .button.dropdown ul li a:link:hover, .button.dropdown ul li a:link:focus, .button.dropdown ul li a:visited:hover, .button.dropdown ul li a:visited:focus, a.button.dropdown ul li a:hover, a.button.dropdown ul li a:focus, a.button.dropdown ul li a:link:hover, a.button.dropdown ul li a:link:focus, a.button.dropdown ul li a:visited:hover, a.button.dropdown ul li a:visited:focus, a.button:link.dropdown ul li a:hover, a.button:link.dropdown ul li a:focus, a.button:link.dropdown ul li a:link:hover, a.button:link.dropdown ul li a:link:focus, a.button:link.dropdown ul li a:visited:hover, a.button:link.dropdown ul li a:visited:focus, a.button:visited.dropdown ul li a:hover, a.button:visited.dropdown ul li a:focus, a.button:visited.dropdown ul li a:link:hover, a.button:visited.dropdown ul li a:link:focus, a.button:visited.dropdown ul li a:visited:hover, a.button:visited.dropdown ul li a:visited:focus, input[type=submit].dropdown ul li a:hover, input[type=submit].dropdown ul li a:focus, input[type=submit].dropdown ul li a:link:hover, input[type=submit].dropdown ul li a:link:focus, input[type=submit].dropdown ul li a:visited:hover, input[type=submit].dropdown ul li a:visited:focus, input[type=button].dropdown ul li a:hover, input[type=button].dropdown ul li a:focus, input[type=button].dropdown ul li a:link:hover, input[type=button].dropdown ul li a:link:focus, input[type=button].dropdown ul li a:visited:hover, input[type=button].dropdown ul li a:visited:focus, input[type=reset].dropdown ul li a:hover, input[type=reset].dropdown ul li a:focus, input[type=reset].dropdown ul li a:link:hover, input[type=reset].dropdown ul li a:link:focus, input[type=reset].dropdown ul li a:visited:hover, input[type=reset].dropdown ul li a:visited:focus {
   background: #333;
-  text-shadow: 0 0 5px rgba(0,0,0,0.25)
+  text-shadow: 0 0 5px rgba(0,0,0,0.25);
 }
 
 a {
@@ -112,7 +112,7 @@ a {
 
 a:hover, a:focus, a:visited:hover, a:visited:focus {
   color: #000;
-  text-shadow: 0 0 5px rgba(0,0,0,0.25)
+  text-shadow: 0 0 5px rgba(0,0,0,0.25);
   border-bottom: none;
 }
 
