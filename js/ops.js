@@ -124,7 +124,7 @@ function streamList(input) {
       alreadyInList = true;
     }
   }
-  if (!alreadyIn) {
+  if (!alreadyInList) {
     streamSelection.push(input);
   };
 }
