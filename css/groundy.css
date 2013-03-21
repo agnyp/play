@@ -90,9 +90,9 @@ a.remove {
 }
 
 .clock {
-  font-family: "Monaco", "Consolas", "Ubuntu Mono", monospace;
+  font-family: "Droid Sans Mono", sans-serif;
   float: right;
-  padding-top: 8pt;
+  padding-top: 6pt;
   padding-right: 8px;
   margin: 0;
 }
