@@ -157,6 +157,6 @@ $('document').ready(function(){
   $('#streams').sortable();
   $('#streams').sortable('disable');
   lastStreamLoad();
-  loadStreams();
   ticktock();
+  setTimeout(loadStreams(), 500);
 });
