@@ -41,7 +41,7 @@ function getCookie(c_name) {
 
 function lastStreamLoad() {
   var lastStream = getCookie(lastStream);
-  if (lastStream != null) {
+  if (lastStream !== null) {
     stream = lastStream;
   }
   else {
