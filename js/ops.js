@@ -27,20 +27,18 @@ function setCookie(c_name,value,exdays) {
   document.cookie = c_name + "=" + c_value;
 }
 
-function getCookie (cookie_name) {
-  var cookie_string = document.cookie ;
-  if (cookie_string.length != 0) {
-      var cookie_value = cookie_string.match (
-                      '(^|;)[\s]*' +
-                      cookie_name +
-                      '=([^;]*)' );
-      return decodeURIComponent(cookie_value[2]);
-  }
-  return '';
+function getCookie(cookieName) {
+  var theCookie=" "+document.cookie;
+  var ind=theCookie.indexOf(" "+cookieName+"=");
+  if (ind==-1) ind=theCookie.indexOf(";"+cookieName+"=");
+  if (ind==-1 || cookieName=="") return "";
+  var ind1=theCookie.indexOf(";",ind+1);
+  if (ind1==-1) ind1=theCookie.length; 
+  return unescape(theCookie.substring(ind+cookieName.length+2,ind1));
 }
 
 function lastStreamLoad() {
-  var lastStream = getCookie(lastStream);
+  var lastStream = getCookie("lastStream");
   if (lastStream !== '') {
     stream = lastStream;
   }
