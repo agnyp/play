@@ -20,6 +20,32 @@ function ticktock() {
   setInterval(function() {$('#theTime').html('<h2 class="responsive zero" data-compression="8.25" data-min="20" data-max="200"> <a class="colortoBG clock">' + moment().format("H:mm:ss") + '</a></h3>')}, 500);
 }
 
+function setCookie(c_name,value,exdays) {
+  var exdate = new Date();
+  exdate.setDate(exdate.getDate() + exdays);
+  var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+  document.cookie = c_name + "=" + c_value;
+}
+
+function getCookie(c_name) {
+  var i,x,y,ARRcookies = document.cookie.split(";");
+  for (i=0;i<ARRcookies.length;i++) {
+    x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+    y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+    x=x.replace(/^\s+|\s+$/g,"");
+    if (x==c_name) {
+      return unescape(y);
+    }
+  }
+}
+
+function lastStreamLoad() {
+  var lastStream = getCookie(lastStream);
+  if (lastStream != null) {
+    stream = lastStream;
+  };
+}
+
 function removeA(arr) {
   var what, a = arguments, L = a.length, ax;
   while (L > 1 && arr.length) {
@@ -82,6 +108,7 @@ function streamUpdate(selection) {
 }
 
 function loadStreams() {
+  setCookie("lastStream",stream,365);
   $.getJSON(url + stream, function(data) {
     var datact = 0;
     $.each(data, function(id, node) {
@@ -129,6 +156,7 @@ function streamCreate(streamA) {
 $('document').ready(function(){
   $('#streams').sortable();
   $('#streams').sortable('disable');
+  lastStreamLoad();
   loadStreams();
   ticktock();
 });
