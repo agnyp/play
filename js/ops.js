@@ -59,9 +59,17 @@ function removeA(arr) {
 }
 
 $('#streamAdd').click(function() {
-  streamSelection.push($('#streamName').val());
-  $('#streamName').val('');
-  streamUpdate(streamSelection);
+  var alreadyIn;
+  for (i=0;i<streamSelection.length;i++) {
+    if ($('#streamName').val()===streamSelection[i]) {
+      alreadyIn = true;
+    }
+  }
+  if (!alreadyIn) {
+    streamSelection.push($('#streamName').val());
+    streamUpdate($('#streamName').val());
+    $('#streamName').val('');
+  };
 });
 $('#streamClear').click(function() {
   emptyStreams();
@@ -100,6 +108,7 @@ $('#streamProm').click(function() {
 
 function emptyStreams() {
   $('#streams').html('');
+  streamSelection = [];
 }
 
 function streamUpdate(selection) {
@@ -108,8 +117,24 @@ function streamUpdate(selection) {
   loadStreams();
 }
 
+function streamList(input) {
+  var alreadyInList;
+  for (i=0;i<streamSelection.length;i++) {
+    if (input===streamSelection[i]) {
+      alreadyInList = true;
+    }
+  }
+  if (!alreadyIn) {
+    streamSelection.push(input);
+  };
+}
+
+function streamCookie() {
+  var streamListing = "?channel=" + streamSelection.toString() + "&callback=?";
+  setCookie("lastStream",streamListing,365);
+}
+
 function loadStreams() {
-  setCookie("lastStream",stream,365);
   $.getJSON(url + stream, function(data) {
     var datact = 0;
     $.each(data, function(id, node) {
@@ -134,6 +159,7 @@ function loadStreams() {
       streamCreate(streamdata[i]);
     }
     streamPlacement();
+    streamCookie();
     $('#streams').sortable("refresh");
     setTimeout(function(){if ($('#streams').html()==='' ||$('#streams').html()==='<i class="icon-spinner icon-4x icon-spin"></i>') $('#streams').html('<h2><i class="icon-lemon"></i> no streams available <i class="icon-lemon"></i></h2>')}, 500);
   });
@@ -152,6 +178,7 @@ function streamCreate(streamA) {
   streamsActive[i].id = streamA.name;
   streamsActive[i].object = '<object type="' + flashType + '" height="' + flashHeight + '" width="' + flashWidth + '" id="live_embed_player_flash" data="'+ flashData + '?channel=' + name + '" bgcolor="' + flashColor + '"><param name="allowFullScreen" value="' + flashFS + '" /><param name="allowScriptAccess" value="' + flashSA + '" /><param name="movie" value="' + flashData + '" /><param name="flashvars" value="' + flashVars + streamA.name + '" /></object>';
   streamsActive[i].title = streamA.title;
+  streamList(streamA.name);
 }
 
 $('document').ready(function(){
