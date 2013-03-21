@@ -1,5 +1,5 @@
 var url = "https://api.twitch.tv/kraken/streams";
-var stream = "?limit=9&callback=?";
+var stream;
 var streamSelection = [];
 var streamProm = ["styrka","greenyb","healthbar","velna","amiye","kynks","shuttle08","gnorrior","shyllo","zoaxlis","archidel"];
 var streamdata = [];
@@ -43,7 +43,10 @@ function lastStreamLoad() {
   var lastStream = getCookie(lastStream);
   if (lastStream != null) {
     stream = lastStream;
-  };
+  }
+  else {
+    stream = "?limit=9&callback=?";
+  }
 }
 
 function removeA(arr) {
