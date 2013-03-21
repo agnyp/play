@@ -27,21 +27,21 @@ function setCookie(c_name,value,exdays) {
   document.cookie = c_name + "=" + c_value;
 }
 
-function getCookie(c_name) {
-  var i,x,y,ARRcookies = document.cookie.split(";");
-  for (i=0;i<ARRcookies.length;i++) {
-    x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
-    y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
-    x=x.replace(/^\s+|\s+$/g,"");
-    if (x==c_name) {
-      return unescape(y);
-    }
+function getCookie (cookie_name) {
+  var cookie_string = document.cookie ;
+  if (cookie_string.length != 0) {
+      var cookie_value = cookie_string.match (
+                      '(^|;)[\s]*' +
+                      cookie_name +
+                      '=([^;]*)' );
+      return decodeURIComponent(cookie_value[2]);
   }
+  return '';
 }
 
 function lastStreamLoad() {
   var lastStream = getCookie(lastStream);
-  if (lastStream !== null) {
+  if (lastStream !== '') {
     stream = lastStream;
   }
   else {
