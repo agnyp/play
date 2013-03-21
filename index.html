@@ -45,11 +45,13 @@
 </head>
 <body>
   <header>
-    <div class="container">
+    <div class="backgroundAura">
       <div class="row">
-        <div class="one third">
-          <h1 class="responsive zero" data-compression="5.65"
-            data-min="20" data-max="200"><a>Styrka</a></h1>
+        <div class="one sixth skip-one">
+          <h1 class="responsive zero" data-compression="8.25"
+            data-min="20" data-max="200"><a class="colortoBG">Styrka</a></h1>
+        </div>
+        <div class="one sixth skip four" id="theTime">
         </div>
       </div>
     </div>
@@ -100,7 +102,7 @@
               <a class="nocolor" id="streamMove">Move</a>
             </li>
             <li>
-              <span class="dropdown button nocolor buttonGap">Presets <i class="icon-sort-down"></i>
+              <article class="dropdown button nocolor buttonGap">Presets <i class="icon-sort-down"></i>
                 <ul>
                   <li>
                     <a class="nocolor" id="streamDota">Dota</a>
@@ -112,7 +114,7 @@
                     <a class="nocolor" id="streamProm">Promethean</a>
                   </li>
                 </ul>
-              </span>
+              </article>
             </li>
           </ul>
         </nav>
@@ -129,6 +131,7 @@
   <!-- scripts -->
   <script type="text/javascript" src="./js/plugins/jquery.orbit-1.4.0.js"></script>
   <script type="text/javascript" src="./js/groundwork.js"></script>
+  <script type="text/javascript" src="./js/plugins/moment.min.js"></script>
   <script type="text/javascript" src="./js/ops.js"></script>
 
   <!-- google analytics -->

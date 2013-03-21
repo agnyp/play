@@ -16,6 +16,10 @@ var flashSA = "always";
 var flashVars = "auto_play=false&start_volume=25&channel=";
 var lock = true;
 
+function ticktock() {
+  setInterval(function() {$('#theTime').html('<h2 class="responsive zero" data-compression="8.25" data-min="20" data-max="200"> <a class="colortoBG clock">' + moment().format("H:mm:ss") + '</a></h3>')}, 500);
+}
+
 function removeA(arr) {
   var what, a = arguments, L = a.length, ax;
   while (L > 1 && arr.length) {
@@ -126,4 +130,5 @@ $('document').ready(function(){
   $('#streams').sortable();
   $('#streams').sortable('disable');
   loadStreams();
+  ticktock();
 });

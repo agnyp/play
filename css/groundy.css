@@ -7,6 +7,11 @@ body {
   color: #2c2c2f;
 }
 
+header {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
 hr {
   margin: 10px auto;
   border: none;
@@ -84,6 +89,14 @@ a.remove {
   font-size: .7em;
 }
 
+.clock {
+  font-family: "Monaco", "Consolas", "Ubuntu Mono", monospace;
+  float: right;
+  padding-top: 8pt;
+  padding-right: 8px;
+  margin: 0;
+}
+
 button.dropdown:after, .button.dropdown:after, a.button.dropdown:after, a.button:link.dropdown:after, a.button:visited.dropdown:after, input[type=submit].dropdown:after, input[type=button].dropdown:after, input[type=reset].dropdown:after {
   content: '';
 }
@@ -134,6 +147,26 @@ a.nocolor, a.nocolor, a:link.nocolor, a:visited.nocolor {
 
 a.nocolor:hover, a.nocolor:focus {
   background: #333;
+}
+
+.colortoBG {
+  color: #ecf0f1;
+}
+
+a.colortoBG:hover, a.colortoBG:focus, a.colortoBG:visited:hover, a.colortoBG:visited:focus {
+  color: #fff;
+  text-shadow: 0 0 5px rgba(255,255,255,0.75);
+  border-bottom: none;
+}
+
+.backgroundAura {
+  padding-bottom: 8pt;
+  background-color: #262120;
+  background-image: -webkit-radial-gradient(50% 0%, ellipse farthest-side, rgba(82,77,83,0.9), rgba(56,51,56,0) 70%);
+  background-image: -moz-radial-gradient(50% 0%, ellipse farthest-side, rgba(82,77,83,0.9), rgba(56,51,56,0) 70%);
+  background-image: -ms-radial-gradient(50% 0%, ellipse farthest-side, rgba(82,77,83,0.9), rgba(56,51,56,0) 70%);
+  background-image: -o-radial-gradient(50% 0%, ellipse farthest-side, rgba(82,77,83,0.9), rgba(56,51,56,0) 70%);
+  background-image: radial-gradient(50% 0%, ellipse farthest-side, rgba(82,77,83,0.9), rgba(56,51,56,0) 70%);
 }
 
 h1.heading {
