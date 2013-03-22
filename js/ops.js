@@ -91,17 +91,26 @@ $('#streamMove').click(function(){
 $(document).on("click", "a.remove", function() {
   $(this).parent().parent().parent().remove();
 });
+$('#streamTop9').click(function() {
+  streamSelection = [];
+  $('#streams').html('<i class="icon-spinner icon-4x icon-spin"></i>');
+  stream = "?limit=9&callback=?";
+  loadStreams();
+});
 $('#streamDota').click(function() {
+  streamSelection = [];
   stream = "?game=Dota+2&limit=9&callback=?";
   $('#streams').html('<i class="icon-spinner icon-4x icon-spin"></i>');
   loadStreams();
 });
 $('#streamWoW').click(function() {
+  streamSelection = [];
   stream = "?game=World+of+Warcraft:+Mists+of+Pandaria&limit=9&callback=?";
   $('#streams').html('<i class="icon-spinner icon-4x icon-spin"></i>');
   loadStreams();
 });
 $('#streamProm').click(function() {
+  streamSelection = [];
   $('#streams').html('<i class="icon-spinner icon-4x icon-spin"></i>');
   streamUpdate(streamProm);
 });
