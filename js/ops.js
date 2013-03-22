@@ -119,8 +119,8 @@ function streamUpdate(selection) {
 
 function streamList(input) {
   var alreadyInList;
-  for (i=0;i<streamSelection.length;i++) {
-    if (input===streamSelection[i]) {
+  for (n=0;n<streamSelection.length;n++) {
+    if (input===streamSelection[n]) {
       alreadyInList = true;
     }
   }
@@ -184,7 +184,7 @@ function streamCreate(streamA) {
 $('document').ready(function(){
   $('#streams').sortable();
   $('#streams').sortable('disable');
-  //lastStreamLoad();
+  lastStreamLoad();
   ticktock();
   setTimeout(loadStreams(), 500);
 });
