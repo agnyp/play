@@ -17,7 +17,7 @@ var flashVars = "auto_play=false&start_volume=25&channel=";
 var lock = true;
 
 if ((navigator.userAgent.indexOf('iPhone') != -1) || (navigator.userAgent.indexOf('iPod') != -1)) {
-    document.location = "http://www.engageinteractive.co.uk/iphone/";
+    document.location = "http://www.comeatme.co/m/index.html";
 }
 
 function ticktock() {
