@@ -11,25 +11,13 @@
   <!-- Modernizr -->
   <script src="./js/libs/modernizr-2.6.2.min.js"></script>
   <!-- jQuery -->
-  <link type="text/css" rel="stylesheet" href="./css/jqui.css" />
+  <link type="text/css" rel="stylesheet" href="../css/jqui.css" />
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
   <!-- Groundwork CSS -->
-  <link type="text/css" rel="stylesheet" href="./css/groundwork.css">
-  <link type="text/css" rel="stylesheet" href="./css/groundy.css">
-  <!--[if IE]>
-  <link type="text/css" rel="stylesheet" href="./css/groundwork-ie.css">
-  <![endif]-->
-  <!--[if lt IE 9]>
-  <script type="text/javascript" src="./js/libs/html5shiv.min.js"></script>
-  <![endif]-->
-  <!--[if IE 7]>
-  <link type="text/css" rel="stylesheet" href="./css/font-awesome-ie7.min.css">
-  <![endif]-->
-  <!-- Mobile -->
-  <script type="text/javascript" src="js/libs/redirection_mobile.min.js"></script><script type="text/javascript">// <![CDATA[
-  SA.redirection_mobile ({param:"isDefault", mobile_prefix : "m", cookie_hours : "1" });
-  // ]]></script>
+  <link type="text/css" rel="stylesheet" href="../css/groundwork.css">
+  <link type="text/css" rel="stylesheet" href="../css/groundy.css">
+  <link type="text/css" rel="stylesheet" href="../css/groundy_m.css">
   <!-- Font Import -->
   <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
   <link rel="icon" href="apple-touch-icon.png" />
@@ -37,27 +25,27 @@
     // fallback if SVG unsupported
     Modernizr.load({
       test: Modernizr.svg,
-      nope: './css/no-svg.css'
+      nope: '../css/no-svg.css'
     });
     // polyfill for HTML5 placeholders
     Modernizr.load({
       test: Modernizr.input.placeholder,
       nope: [
-        './css/placeholder_polyfill.css',
-        './js/libs/placeholder_polyfill.jquery.js'
+        '../css/placeholder_polyfill.css',
+        '../js/libs/placeholder_polyfill.jquery.js'
       ]
     });
   </script>
 </head>
-<body>
+<body onLoad="setTimeout(function() { window.scrollTo(0, 1) }, 100);">
   <header>
     <div class="backgroundAura">
       <div class="row">
-        <div class="one sixth skip-one">
-          <h1 class="responsive zero" data-compression="8.25"
-            data-min="20" data-max="200"><a class="colortoBG">Styrka</a></h1>
+        <div class="one mobile half">
+          <h1 class="responsive zero" data-compression="6.4"
+            data-min="10" data-max="200"><a class="colortoBG mobile-head">Styrka</a></h1>
         </div>
-        <div class="one sixth skip four" id="theTime">
+        <div class="one mobile half" id="theTime">
         </div>
       </div>
     </div>
@@ -71,10 +59,10 @@
   <div class="container">
 
     <article class="row">
-      <section class="three fifths right-one padded">
+      <section class="one-sixth">
         <div class="pad-bottom">
           <!--<div class="slider">-->
-            <img src="./images/banner/slide1.jpg" alt=""/>
+            <img src="../images/banner/slide1.jpg" alt=""/>
           <!--</div>-->
         </div>
         <!--<img src="http://placehold.it/250x130/198d98/ffffff/" class="pull-left gap-right gap-bottom" alt="" />-->
@@ -98,57 +86,39 @@
     </article>
     <article class="row">
       <section class="one whole padded">
-        <h2>Streams</h2>
-        <nav class="inline">
-          <ul>
-            <li style="width:200px">
-              <p><input type="text" id="streamName"/></p>
-            </li>
-            <li>
-              <a class="nocolor buttonGap" id="streamAdd">Add</a>
-            </li>
-            <li>
-              <a class="nocolor" id="streamClear">Clear</a>
-            </li>
-            <li>
-              <a class="nocolor" id="streamMove">Move</a>
-            </li>
-            <li>
-              <article class="dropdown button nocolor buttonGap">Presets <i class="icon-sort-down"></i>
-                <ul>
-                  <li>
-                    <a class="nocolor" id="streamTop9">Top 9</a>
-                  </li>
-                  <li>
-                    <a class="nocolor" id="streamDota">Dota</a>
-                  </li>
-                  <li>
-                    <a class="nocolor" id="streamWoW">WoW</a>
-                  </li>
-                  <li>
-                    <a class="nocolor" id="streamProm">Promethean</a>
-                  </li>
-                </ul>
-              </article>
-            </li>
-          </ul>
-        </nav>
       </section>
-      <div>
-        <ul id='streams'>
-        </ul>
-      </div>
     </article>
     <footer class="footer align-right">
       <p>nwe 2013 <i class="icon-adjust"> </i></p>
     </footer>
   </div>
   <!-- scripts -->
-  <script type="text/javascript" src="./js/plugins/jquery.orbit-1.4.0.js"></script>
-  <script type="text/javascript" src="./js/groundwork.js"></script>
-  <script type="text/javascript" src="./js/plugins/moment.min.js"></script>
-  <script type="text/javascript" src="./js/ops.js"></script>
+  <script type="text/javascript" src="../js/plugins/jquery.orbit-1.4.0.js"></script>
+  <script type="text/javascript" src="../js/groundwork.js"></script>
+  <script type="text/javascript" src="../js/plugins/moment.min.js"></script>
+  <script type="text/javascript" src="../js/ops_m.js"></script>
 
+  <script type="text/javascript">// <![CDATA[
+    var updateLayout = function() {
+      if (window.innerWidth != currentWidth) {
+        currentWidth = window.innerWidth;
+        var orient = "profile";
+        document.body.setAttribute("orient", orient);
+        window.scrollTo(0, 1);
+      }
+    };
+  <script type="text/javascript">
+  iPhone.DomLoad(updateLayout);
+  setInterval(updateLayout, 500);
+  // ]]></script>
+
+  <script type="text/javascript">// <![CDATA[
+  addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+   
+  function hideURLbar(){
+  window.scrollTo(0,1);
+  }
+  // ]]></script>
   <!-- google analytics -->
   <script type="text/javascript">
 
