@@ -16,6 +16,10 @@ var flashSA = "always";
 var flashVars = "auto_play=false&start_volume=25&channel=";
 var lock = true;
 
+if ((navigator.userAgent.indexOf('iPhone') != -1) || (navigator.userAgent.indexOf('iPod') != -1)) {
+    document.location = "http://www.engageinteractive.co.uk/iphone/";
+}
+
 function ticktock() {
   setInterval(function() {
     $('#theTime').html('<h2 class="responsive zero" data-compression="8.25" data-min="20" data-max="200"> <a class="colortoBG clock">' + moment().format("H:mm:ss") + '</a></h3>')
