@@ -97,6 +97,26 @@ a.remove {
   margin: 0;
 }
 
+#hour, #minute, #second {
+  background: black;
+  position: absolute;
+}
+
+#hour {
+  width: 3px;
+  left: 98.5%;
+}
+
+#minute {
+  width: 2px;
+  left: 99%;
+}
+
+#second {
+  width: 1px;
+  left: 99.5%;
+}
+
 button.dropdown:after, .button.dropdown:after, a.button.dropdown:after, a.button:link.dropdown:after, a.button:visited.dropdown:after, input[type=submit].dropdown:after, input[type=button].dropdown:after, input[type=reset].dropdown:after {
   content: '';
 }
