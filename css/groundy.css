@@ -252,11 +252,26 @@ button.nocolor:hover, button.nocolor:focus, .button.nocolor:hover, .button.nocol
 
 div.modal {
   padding: 0px;
+  transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  -o-transition: opacity 1s;
 }
 
 div.modal .close, div.modal .fullscreen {
   background: #ecf0f1;
   cursor: default;
+  transition: color 1s;
+  -moz-transition: color 1s;
+  -webkit-transition: color 1s;
+  -o-transition: color 1s;
+}
+
+#overlay {
+  transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  -o-transition: opacity 1s;
 }
 
 nav ul li a, nav ul li a:visited {
