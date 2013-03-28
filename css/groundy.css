@@ -97,11 +97,18 @@ a.remove {
   margin: 0;
 }
 
-#hour, #minute, #second {
-  background: black;
+#art1, #art2, #art3, #hour, #minute, #second {
+  background: #262120;
   position: absolute;
 }
 
+#art1, #art2, #art3 {
+  height: 1px;
+  left: 0%;
+}
+
+#art2{margin-top:1px;}
+#art3{margin-top:2px;}
 #hour {
   width: 3px;
   left: 98.5%;

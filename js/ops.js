@@ -1,3 +1,4 @@
+// inits
 var url = "https://api.twitch.tv/kraken/streams";
 var stream = "?limit=9&callback=?";
 var streamSelection = [];
@@ -5,7 +6,7 @@ var streamProm = ["styrka","greenyb","healthbar","velna","amiye","kynks","shuttl
 var streamdata = [];
 var streamsActive = [];
 var removeItem = '<a class="remove">X</a>';
-
+// flash vars
 var flashHeight = 295;
 var flashWidth = 353;
 var flashType = "application/x-shockwave-flash";
@@ -15,7 +16,26 @@ var flashFS = "true";
 var flashSA = "always";
 var flashVars = "auto_play=false&start_volume=25&channel=";
 var lock = true;
-
+//remove from array
+function removeA(arr) {
+  var what, a = arguments, L = a.length, ax;
+  while (L > 1 && arr.length) {
+      what = a[--L];
+      while ((ax= arr.indexOf(what)) !== -1) {
+          arr.splice(ax, 1);
+      }
+  }
+  return arr;
+}
+//art
+function artIt() {
+  setInterval(function () {
+    $('#art1').css('width', moment().format("ss")*3 + Math.random()*180);
+    $('#art2').css('width', moment().format("SS")*2 + Math.random()*160);
+    $('#art3').css('width', moment().format("SS")*1 + Math.random()*260);
+  }, 100);
+}
+//clock
 function ticktock() {
   setInterval(function() {
     $('#theTime').html('<h2 class="responsive zero" data-compression="8.25" data-min="20" data-max="200"> <a class="colortoBG clock">' + moment().format("H:mm:ss") + '</a></h3>')
@@ -24,9 +44,9 @@ function ticktock() {
   }, 500);
   setInterval(function() {
     $('#second').css('height', moment().format("ss")*2 + moment().format("SS")/50);
-  }, 50);
+  }, 250);
 }
-
+//cookies
 function setCookie(c_name,value,exdays) {
   var exdate = new Date();
   exdate.setDate(exdate.getDate() + exdays);
@@ -44,6 +64,11 @@ function getCookie(cookieName) {
   return unescape(theCookie.substring(ind+cookieName.length+2,ind1));
 }
 
+function streamCookie() {
+  var streamListing = "?channel=" + streamSelection.toString() + "&callback=?";
+  setCookie("lastStream",streamListing,365);
+}
+
 function lastStreamLoad() {
   var lastStream = getCookie("lastStream");
   if (lastStream !== '') {
@@ -53,18 +78,7 @@ function lastStreamLoad() {
     stream = "?limit=9&callback=?";
   }
 }
-
-function removeA(arr) {
-  var what, a = arguments, L = a.length, ax;
-  while (L > 1 && arr.length) {
-      what = a[--L];
-      while ((ax= arr.indexOf(what)) !== -1) {
-          arr.splice(ax, 1);
-      }
-  }
-  return arr;
-}
-
+//stream ui
 $('#streamAdd').click(function() {
   var alreadyIn;
   for (i=0;i<streamSelection.length;i++) {
@@ -121,7 +135,7 @@ $('#streamProm').click(function() {
   $('#streams').html('<i class="icon-spinner icon-4x icon-spin"></i>');
   streamUpdate(streamProm);
 });
-
+//stream functions
 function emptyStreams() {
   $('#streams').html('');
   streamSelection = [];
@@ -143,11 +157,6 @@ function streamList(input) {
   if (!alreadyInList) {
     streamSelection.push(input);
   };
-}
-
-function streamCookie() {
-  var streamListing = "?channel=" + streamSelection.toString() + "&callback=?";
-  setCookie("lastStream",streamListing,365);
 }
 
 function loadStreams() {
@@ -196,11 +205,12 @@ function streamCreate(streamA) {
   streamsActive[i].title = streamA.title;
   streamList(streamA.name);
 }
-
+//page inits
 $('document').ready(function(){
   $('#streams').sortable();
   $('#streams').sortable('disable');
   lastStreamLoad();
   ticktock();
+  //artIt();
   setTimeout(loadStreams(), 500);
 });
