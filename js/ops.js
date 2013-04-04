@@ -110,7 +110,9 @@ $('#streamMove').click(function(){
   };
 });
 $(document).on("click", "a.remove", function() {
+  removeA(streamSelection, $(this).parent().parent()[0].id);
   $(this).parent().parent().parent().remove();
+  streamCookie();
 });
 $('#streamTop9').click(function() {
   streamSelection = [];
