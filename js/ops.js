@@ -37,8 +37,11 @@ function artIt() {
 }
 //clock
 function ticktock() {
+  $('#testinfo').html(moment().format('M,D'));
   setInterval(function() {
     $('#theTime').html('<h2 class="responsive zero" data-compression="8.25" data-min="20" data-max="200"> <a class="colortoBG clock">' + moment().format("H:mm:ss") + '</a></h3>')
+    $('#month').css('height', moment().format("H")*3);
+    $('#day').css('height', moment().format("D")*4);
     $('#hour').css('height', moment().format("H")*5);
     $('#minute').css('height', moment().format("mm")*2);
   }, 500);

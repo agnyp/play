@@ -97,7 +97,7 @@ a.remove {
   margin: 0;
 }
 
-#art1, #art2, #art3, #hour, #minute, #second {
+#art1, #art2, #art3, #month, #day, #hour, #minute, #second {
   background: #262120;
   position: absolute;
 }
@@ -109,6 +109,16 @@ a.remove {
 
 #art2{margin-top:1px;}
 #art3{margin-top:2px;}
+#month {
+  width: 1px;
+  left: 97.5%;
+}
+
+#day {
+  width: 2px;
+  left: 98%;
+}
+
 #hour {
   width: 3px;
   left: 98.5%;
