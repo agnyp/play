@@ -85,6 +85,27 @@ a.remove {
   text-align: center;
 }
 
+#streamTitle {
+  padding-right: 5px;
+}
+
+#blag {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 880px;
+}
+
+.content li {
+  margin: 3px 3px 3px 0;
+  padding: 1px;
+  float: left;
+  width: 430px;
+  height: 280px;
+  font-size: 1em;
+  text-align: center;
+}
+
 .subtext {
   font-size: .7em;
 }

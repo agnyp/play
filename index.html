@@ -78,14 +78,16 @@
 
     <article class="row">
       <section class="three fifths right-one padded">
-        <div class="pad-bottom">
+        <div id="blag">
           <!--<div class="slider">-->
             <!--<img src="./images/banner/slide1.jpg" alt=""/>-->
           <!--</div>-->
+          <!--<img src="http://placehold.it/250x130/198d98/ffffff/" class="pull-left gap-right gap-bottom" alt="" />-->
+          <div class="content">
+          </div>
+          <div class="page_navigation">
+          </div>
         </div>
-        <!--<img src="http://placehold.it/250x130/198d98/ffffff/" class="pull-left gap-right gap-bottom" alt="" />-->
-        <h1>Welcome</h1>
-        <p>Utility page with new functions coming daily.</p>
       </section>
       <aside class="one fifth left-three padded border-right">
         <h2>Guild</h2>
@@ -98,15 +100,17 @@
         <p><a class="modal block button nocolor" href="http://www.wowprogress.com/">WoWProgress</a></p>
         <p><a class="modal block button nocolor" href="https://docs.google.com/spreadsheet/ccc?key=0Avew1kRL25l9dDM2bWhYa1dvRURNM2JaVF9NaTg4U1E">MW 5.2 BIS</a></p>
         <hr/>
+        <h1>Welcome</h1>
+        <p>Utility page with new functions coming daily.</p>
       </aside>
-      <aside class="one fifth padded border-left">
-      </aside>
+      <!--<aside class="one fifth padded border-left">-->
+      <!--</aside>-->
     </article>
+    <hr/>
     <article class="row">
       <section class="one whole padded">
-        <h2>Streams</h2>
-        <p id="testinfo"></p>
-        <nav class="inline">
+        <h2 id="streamTitle" class="inline">Streams</h2>
+        <nav id="searchBar" class="inline">
           <ul>
             <li style="width:200px">
               <p><input type="text" id="streamName"/></p>
@@ -154,6 +158,8 @@
   <script type="text/javascript" src="./js/plugins/jquery.orbit-1.4.0.js"></script>
   <script type="text/javascript" src="./js/groundwork.js"></script>
   <script type="text/javascript" src="./js/plugins/moment.min.js"></script>
+  <script type="text/javascript" src="./js/plugins/pajinate.js"></script>
+  <script type="text/javascript" src="./js/feed.js"></script>
   <script type="text/javascript" src="./js/ops.js"></script>
 
   <!-- google analytics -->
