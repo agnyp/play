@@ -1,6 +1,6 @@
-var dataload;
-
 function feeds() {
+  var dataload;
+
   $.ajax({
      dataType: "jsonp",
      url: "http://www.comeatmeco.blogspot.com/feeds/posts/default?alt=json",
